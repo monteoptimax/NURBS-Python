@@ -68,7 +68,7 @@ class VisConfig(vis.VisConfigAbstract):
 
     def __init__(self, **kwargs):
         super(VisConfig, self).__init__(**kwargs)
-        self.dtype = np.float
+        self.dtype = float
         self.display_ctrlpts = kwargs.get('ctrlpts', True)
         self.display_evalpts = kwargs.get('evalpts', True)
         self.display_bbox = kwargs.get('bbox', False)
@@ -428,7 +428,7 @@ class VisSurface(vis.VisAbstract):
 
         # Start plotting of the surface and the control points grid
         fig = plt.figure(figsize=self.vconf.figure_size, dpi=self.vconf.figure_dpi)
-        ax = Axes3D(fig)
+        ax = fig.add_subplot( 111, projection='3d' )
 
         surf_count = 0
         # Start plotting
